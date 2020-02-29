@@ -1,15 +1,15 @@
 import { SERVER_MSG } from "../actions/types";
 
 const initialState = {
-  errorMsg: "",
+  msg: "",
   showed: 0
 };
 
-export const errorReducer = (state = initialState, action) => {
+export const serverMsgReducer = (state = initialState, action) => {
   switch (action.type) {
     case SERVER_MSG:
       return {
-        errorMsg: action.payload,
+        msg: action.payload,
         showed: state.showed + 1
       };
 

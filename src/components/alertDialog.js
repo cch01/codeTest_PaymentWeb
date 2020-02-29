@@ -16,18 +16,18 @@ export default () => {
     setOpen(false);
   };
 
-  const errState = useSelector(state => state.error);
+  const serverMsgState = useSelector(state => state.serverMsg);
 
   useEffect(() => {
-    if (errState.showed !== 0) setOpen(true);
-  }, [errState.showed]);
+    if (serverMsgState.showed !== 0) setOpen(true);
+  }, [serverMsgState.showed]);
 
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Server Message</DialogTitle>
         <DialogContent>
-          <DialogContentText>{errState.errorMsg}</DialogContentText>
+          <DialogContentText>{serverMsgState.msg}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
