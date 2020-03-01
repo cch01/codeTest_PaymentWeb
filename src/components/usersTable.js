@@ -13,16 +13,13 @@ import { useStyles } from "./styles/tablesStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsersTable } from "../redux/actions";
 
+
 export default () => {
+
   const classes = useStyles();
   const dispatch = useDispatch();
+
   const users = useSelector(state => state.userTable.users);
-  const postedCount = useSelector(state => state.posts.postedCount);
-
-  useEffect(() => {
-    dispatch(fetchUsersTable());
-  }, [postedCount]);
-
   const table = users.map(row => {
     return (
       <TableRow key={row.user_id}>
@@ -33,6 +30,12 @@ export default () => {
       </TableRow>
     );
   });
+
+  const postedCount = useSelector(state => state.posts.postedCount);
+
+  useEffect(() => {
+    dispatch(fetchUsersTable());
+  }, [postedCount]);
 
   return (
     <TableContainer

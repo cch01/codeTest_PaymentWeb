@@ -7,6 +7,7 @@ const initialState = {
 
 export const serverMsgReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case SERVER_MSG:
       return {
         msg: action.payload,

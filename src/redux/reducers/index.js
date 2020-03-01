@@ -4,6 +4,7 @@ import { postTransactionReducer } from "./postTransactionReducer";
 import { combineReducers } from "redux";
 import { serverMsgReducer } from "./serverMsgReducer";
 
+
 export default combineReducers({
   userTable: usersTableReducer,
   transactionTable: transactionsTableReducer,

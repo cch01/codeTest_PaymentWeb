@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
+
 export default () => {
   const [open, setOpen] = useState(false);
 
@@ -21,6 +22,8 @@ export default () => {
   useEffect(() => {
     if (serverMsgState.showed !== 0) setOpen(true);
   }, [serverMsgState.showed]);
+
+
 
   return (
     <div>

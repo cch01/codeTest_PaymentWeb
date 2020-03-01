@@ -5,15 +5,16 @@ import {
   SERVER_MSG
 } from "./types";
 
+
 export const fetchUsersTable = () => dispatch => {
   fetch("http://localhost:3002/api/get/users", {
     method: "GET"
   })
     .then(response => {
       if (!response.ok)
-        response
-          .text()
+        response.text()
           .then(msg => dispatch({ type: SERVER_MSG, payload: msg }));
+
       else return response.json();
     })
     .then(result => {
@@ -22,15 +23,16 @@ export const fetchUsersTable = () => dispatch => {
     .catch(err => console.log(err));
 };
 
+
 export const fetchTransactionsTable = () => dispatch => {
   fetch("http://localhost:3002/api/get/transactions", {
     method: "GET"
   })
     .then(response => {
       if (!response.ok)
-        response
-          .text()
+        response.text()
           .then(msg => dispatch({ type: SERVER_MSG, payload: msg }));
+
       else return response.json();
     })
     .then(result => {
@@ -38,6 +40,7 @@ export const fetchTransactionsTable = () => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
 
 export const postTransaction = transObj => dispatch => {
   fetch("http://localhost:3002/api/post/transaction", {
@@ -48,7 +51,8 @@ export const postTransaction = transObj => dispatch => {
     body: JSON.stringify({ transaction: transObj })
   })
     .then(response => {
-      response.text().then(msg => dispatch({ type: SERVER_MSG, payload: msg }));
+      response.text()
+        .then(msg => dispatch({ type: SERVER_MSG, payload: msg }));
 
       if (response.ok) dispatch({ type: POST_TRANSACTION });
     })

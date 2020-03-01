@@ -6,6 +6,7 @@ const initialState = {
 
 export const transactionsTableReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case FETCH_TRANSACTION_TABLE:
       return {
         transactions:

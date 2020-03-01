@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { postTransaction } from "../redux/actions";
 import { useStyles } from "./styles/formStyles";
 
+
 export default () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -26,6 +27,8 @@ export default () => {
       [event.target.name]: Number(event.target.value)
     });
   };
+
+
 
   return (
     <form onSubmit={event => handleSubmit(event)}>

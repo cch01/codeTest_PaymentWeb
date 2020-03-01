@@ -4,7 +4,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { ThemeProvider } from "@material-ui/core";
 import { darkTheme } from "./components/styles/theme";
-function App() {
+
+
+export default () => {
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>
@@ -16,4 +18,3 @@ function App() {
   );
 }
 
-export default App;

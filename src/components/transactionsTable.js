@@ -13,18 +13,15 @@ import { useStyles } from "./styles/tablesStyles";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTransactionsTable } from "../redux/actions";
 
+
 export default () => {
+
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   const transactions = useSelector(
     state => state.transactionTable.transactions
   );
-  const postedCount = useSelector(state => state.posts.postedCount);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTransactionsTable());
-  }, [postedCount]);
-
   const table = transactions.map(row => {
     return (
       <TableRow key={row.link_id}>
@@ -37,6 +34,13 @@ export default () => {
       </TableRow>
     );
   });
+
+  const postedCount = useSelector(state => state.posts.postedCount);
+  useEffect(() => {
+    dispatch(fetchTransactionsTable());
+  }, [postedCount]);
+
+
 
   return (
     <TableContainer
